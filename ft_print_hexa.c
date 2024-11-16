@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int print_hexa(unsigned long long nb, int uppercase)
+int ft_print_hexa(unsigned long long nb, int uppercase)
 {
     char *charset;
     int count;
@@ -11,8 +11,8 @@ int print_hexa(unsigned long long nb, int uppercase)
     else
         charset = "0123456789abcdef";
     if (nb >= 16)
-        count += print_hexa(nb / 16, uppercase);
-    count += ft_putchar_fd(charset[nb % 16]);
+        count += ft_print_hexa(nb / 16, uppercase);
+    count += ft_putchar(charset[nb % 16]);
 
     return (count);
 }

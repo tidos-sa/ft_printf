@@ -8,19 +8,19 @@ static int	verfication(const char *s, va_list list)
 	if (*s == 's')
 		count += ft_putstr(va_arg(list, char *));
 	else if (*s == 'c')
-		count += ft_putchar_fd((char)va_arg(list, int));
+		count += ft_putchar((char)va_arg(list, int));
 	else if (*s == 'd' || *s == 'i')
 		count += ft_putnbr(va_arg(list, int));
 	else if (*s == 'X')
-		count += print_hexa(va_arg(list, unsigned int), 1);
+		count += ft_print_hexa(va_arg(list, unsigned int), 1);
 	else if (*s == 'x')
-		count += print_hexa(va_arg(list, unsigned int), 0);
+		count += ft_print_hexa(va_arg(list, unsigned int), 0);
 	else if (*s == 'u')
 		count += ft_putnbr_unsigned(va_arg(list, unsigned int));
 	else if (*s == 'p')
 		count += ft_voidpoint(va_arg(list, void *));
 	else if (*s == '%')
-		count += ft_putchar_fd('%'); // Corrigido
+		count += ft_putchar('%'); // Corrigido
 	return (count);
 }
 
@@ -41,7 +41,7 @@ int	ft_printf(const char *s, ...)
 			count += verfication(s, list);
 		}
 		else
-			count += ft_putchar_fd(*s);
+			count += ft_putchar(*s);
 		s++;
 	}
 	va_end(list);

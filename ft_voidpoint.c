@@ -13,7 +13,7 @@ int	ft_voidpoint(void *str)
     }
     nbr = (unsigned long)str;
     count += ft_putstr("0x");
-    count += print_hexa(nbr, 0); // Use letras minúsculas para o hexadecimal
+    count += ft_print_hexa(nbr, 0); // Use letras minúsculas para o hexadecimal
     return (count);
 }
 /*
