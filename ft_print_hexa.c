@@ -10,7 +10,6 @@ int print_hexa(unsigned long long nb, int uppercase)
         charset = "0123456789ABCDEF";
     else
         charset = "0123456789abcdef";
-    
     if (nb >= 16)
         count += print_hexa(nb / 16, uppercase);
     count += ft_putchar_fd(charset[nb % 16]);

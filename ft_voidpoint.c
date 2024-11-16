@@ -3,17 +3,17 @@
 int	ft_voidpoint(void *str)
 {
     int count;
-    count = 0;
-    unsigned long long nbr;
+    unsigned long nbr;
 
-    nbr = (unsigned long long)str;
-    if(!str)
+    count = 0;
+    if (!str)
     {
         count += ft_putstr("(nil)");
         return (count);
     }
+    nbr = (unsigned long)str;
     count += ft_putstr("0x");
-    count += print_hexa(nbr, 1);
+    count += print_hexa(nbr, 0); // Use letras minúsculas para o hexadecimal
     return (count);
 }
 /*

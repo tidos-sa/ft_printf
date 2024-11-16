@@ -1,25 +1,34 @@
+# Nome do programa
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror
+# Compilador e flags
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-SRC =	ft_hexa.c \
-		ft_printf.c \
-		ft_putchar.c \
-		ft_putnbr.c \
-		ft_putnbunsi.c \
-		ft_putstr.c \
-		ft_voidpoint.c
-OBJS = ${SRC:.c=.o}
+# Arquivos fontes
+SRC = ft_printf.c ft_putchar.c ft_putnbr.c ft_putnbr_unsigned.c ft_putstr.c ft_print_hexa.c ft_voidpoint.c
+OBJ = $(SRC:.c=.o)
 
-all: ${NAME}
+# Arquivo de teste
+TEST_SRC = main.c
+TEST_OBJ = $(TEST_SRC:.c=.o)
+TEST_NAME = test_ftprintf
 
-${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
-.c.o:
-	cc ${FLAGS} -c $< -o $@
+# Regras padrão
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
+# Regra para compilar o programa de teste
+test: $(NAME) $(TEST_OBJ)
+	$(CC) $(CFLAGS) $(TEST_OBJ) -L. -lftprintf -o $(TEST_NAME)
+
+# Limpeza
 clean:
-	rm -rf ${OBJS}
+	rm -f $(OBJ) $(TEST_OBJ)
+
 fclean: clean
-	rm -rf ${NAME}
+	rm -f $(NAME) $(TEST_NAME)
 
 re: fclean all
