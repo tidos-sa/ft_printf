@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tidos-sa <tidos-sa@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/03 18:06:52 by tidos-sa          #+#    #+#             */
+/*   Updated: 2025/01/03 18:06:57 by tidos-sa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	verfication(const char *s, va_list list)
@@ -20,7 +32,7 @@ static int	verfication(const char *s, va_list list)
 	else if (*s == 'p')
 		count += ft_voidpoint(va_arg(list, void *));
 	else if (*s == '%')
-		count += ft_putchar('%'); // Corrigido
+		count += ft_putchar('%');
 	return (count);
 }
 
